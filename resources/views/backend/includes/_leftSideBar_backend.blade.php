@@ -37,6 +37,15 @@
             </ul>
         </li><!-- br-menu-item -->
         <li class="br-menu-item">
+            <a href="#" class="br-menu-link with-sub">
+                <i class="menu-item-icon icon ion-grid tx-24"></i>
+                <span class="menu-item-label">Coupon</span>
+            </a><!-- br-menu-link -->
+            <ul class="br-menu-sub">
+                <li class="sub-item"><a href="{{ route('coupon.create') }}" class="sub-link">Add Coupon</a></li>
+            </ul>
+        </li><!-- br-menu-item -->
+        <li class="br-menu-item">
             <a href="#" class="br-menu-link">
                 <i class="menu-item-icon icon ion-gear-a tx-22"></i>
                 <span class="menu-item-label">Setting</span>

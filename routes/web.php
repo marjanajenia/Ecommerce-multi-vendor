@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Backend\CouponController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +17,26 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('category', function(){
+    return view('backend.pages.category.index');
+})->name('admin.categories');
 
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('category', function(){
-        return view('backend.pages.category.index');
-    })->name('admin.categories');
-});
+
+    Route::group(['prefix' => 'coupon'], function(){
+        Route::get('/create',[CouponController::class, 'create'])->name('coupon.create');
+        Route::post('/add',[CouponController::class, 'store'])->middleware(['auth'])->name('coupon.add');
+    });
+ });
+// Route::group(['prefix' => 'coupon'], function() {
+
+//     Route::get('/create',[CouponController::class, 'create'])->name('create');
+//     Route::get('/manage',[CouponController::class, 'index'])->name('manage');
+//     Route::post('/add',[CouponController::class, 'store'])->middleware(['auth'])->name('add');
+//     Route::get('/edit/{id}',[CouponController::class, 'edit'])->name('edit');
+//     Route::post('/update/{id}',[CouponController::class, 'update'])->name('update');
+//     Route::get('/delete/{id}',[CouponController::class, 'destroy'])->name('delete');
+// });
 
 
 
