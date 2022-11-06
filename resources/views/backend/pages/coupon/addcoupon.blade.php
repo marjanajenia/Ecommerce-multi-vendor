@@ -22,10 +22,20 @@
                             <div class="form-group">
                                 <label for="coupon_code">Coupon Code</label>
                                 <input type="text" class="form-control" placeholder="Enter Coupon Code" name="coupon_code" id="coupon_code">
+                                <span class="text-danger">
+                                    @error('coupon_code')
+                                    {{$message}}
+                                    @enderror
+                                </span>
                             </div>
                             <div class="form-group">
                                 <label for="amount">Amount</label>
                                 <input type="text" class="form-control" placeholder="Enter the amount" name="amount" id="amount">
+                                <span class="text-danger">
+                                    @error('amount')
+                                    {{$message}}
+                                    @enderror
+                                </span>
                             </div>
                             <div class="form-group">
                                 <label for="status">Status</label>
@@ -34,16 +44,31 @@
                                     <option value="1">Active</option>
                                     <option value="2">Inactive</option>
                                 </select>
+                                <span class="text-danger">
+                                    @error('status')
+                                    {{$message}}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="start_at">Start date</label>
                                 <input type="date" class="form-control" placeholder="Enter the start date" name="start_at" id="start_at">
+                                <span class="text-danger">
+                                    @error('start_at')
+                                    {{$message}}
+                                    @enderror
+                                </span>
                             </div>
                             <div class="form-group">
                                 <label for="end_at">End date</label>
                                 <input type="date" class="form-control" placeholder="Enter the End date" name="end_at" id="end_at">
+                                <span class="text-danger">
+                                    @error('end_at')
+                                    {{$message}}
+                                    @enderror
+                                </span>
                             </div>
                             <br>
                             <div class="form-group">

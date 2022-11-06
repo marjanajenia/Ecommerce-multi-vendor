@@ -15,7 +15,8 @@ class CouponController extends Controller
      */
     public function index()
     {
-        //
+        $coupons= Coupon::orderby('id','asc')->get();
+        return view('backend.pages.coupon.managecoupon', compact('coupons'));
     }
 
     /**
@@ -36,6 +37,14 @@ class CouponController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'coupon_code'=>'required',
+            'amount'=>'required|numeric',
+            'vendor_id'=>'required',
+            'start_at'=>'required',
+            'end_at'=>'required',
+            'status'=>'required'
+        ]);
         $coupon= new Coupon();
         $coupon->vendor_id = $request->vendor_id;
         $coupon->coupon_code = $request->coupon_code;
@@ -66,7 +75,8 @@ class CouponController extends Controller
      */
     public function edit($id)
     {
-        //
+        $coupon= Coupon::find($id);;
+        return view('backend.pages.coupon.editcoupon', compact('coupon'));
     }
 
     /**
@@ -78,7 +88,15 @@ class CouponController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $coupon =Coupon::find($id);
+        $coupon->coupon_code = $request->coupon_code;
+        $coupon->amount = $request->amount;
+        $coupon->vendor_id = $request->vendor_id;
+        $coupon->start_at = $request->start_at;
+        $coupon->end_at = $request->end_at;
+        $coupon->status = $request->status;
+        $coupon->update();
+        return redirect()->route('coupon.manage')->with('message','Data added Successfully');
     }
 
     /**
@@ -89,6 +107,8 @@ class CouponController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $coupon=Coupon::find($id);
+        $coupon->delete();
+        return redirect()->route('coupon.manage')->with('error','Data Deleted');
     }
 }

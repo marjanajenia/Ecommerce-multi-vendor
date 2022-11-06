@@ -43,6 +43,7 @@
             </a><!-- br-menu-link -->
             <ul class="br-menu-sub">
                 <li class="sub-item"><a href="{{ route('coupon.create') }}" class="sub-link">Add Coupon</a></li>
+                <li class="sub-item"><a href="{{ route('coupon.manage') }}" class="sub-link">Manage Coupon</a></li>
             </ul>
         </li><!-- br-menu-item -->
         <li class="br-menu-item">

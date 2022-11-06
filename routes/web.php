@@ -26,18 +26,13 @@ Route::group(['prefix' => 'admin'], function() {
     Route::group(['prefix' => 'coupon'], function(){
         Route::get('/create',[CouponController::class, 'create'])->name('coupon.create');
         Route::post('/add',[CouponController::class, 'store'])->middleware(['auth'])->name('coupon.add');
+        Route::get('/manage',[CouponController::class, 'index'])->name('coupon.manage');
+        Route::get('/edit/{id}',[CouponController::class, 'edit'])->name('coupon.edit');
+        Route::post('/update/{id}',[CouponController::class, 'update'])->name('coupon.update');
+        Route::get('/delete/{id}',[CouponController::class, 'destroy'])->name('coupon.delete');
     });
+
  });
-// Route::group(['prefix' => 'coupon'], function() {
-
-//     Route::get('/create',[CouponController::class, 'create'])->name('create');
-//     Route::get('/manage',[CouponController::class, 'index'])->name('manage');
-//     Route::post('/add',[CouponController::class, 'store'])->middleware(['auth'])->name('add');
-//     Route::get('/edit/{id}',[CouponController::class, 'edit'])->name('edit');
-//     Route::post('/update/{id}',[CouponController::class, 'update'])->name('update');
-//     Route::get('/delete/{id}',[CouponController::class, 'destroy'])->name('delete');
-// });
-
 
 
 Route::get('/dashboard', function () {
