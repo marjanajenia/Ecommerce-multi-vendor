@@ -31,7 +31,7 @@
                 <span class="menu-item-label">Category</span>
             </a><!-- br-menu-link -->
             <ul class="br-menu-sub">
-                <li class="sub-item"><a href="{{ route('admin.categories') }}" class="sub-link">All Category</a></li>
+                <li class="sub-item"><a href="{{ route('admin.category') }}" class="sub-link">All Category</a></li>
                 <li class="sub-item"><a href="#" class="sub-link">All Sub Category</a></li>
                 <li class="sub-item"><a href="#" class="sub-link">Brand</a></li>
             </ul>

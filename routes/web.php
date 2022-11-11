@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\CouponController;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\SubcategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +32,12 @@ Route::group(['prefix' => 'admin'], function() {
         Route::get('/edit/{id}',[CouponController::class, 'edit'])->name('coupon.edit');
         Route::post('/update/{id}',[CouponController::class, 'update'])->name('coupon.update');
         Route::get('/delete/{id}',[CouponController::class, 'destroy'])->name('coupon.delete');
+    });
+    Route::group(['prefix' => 'category'], function(){
+        Route::get('/manage', [CategoryController::class, 'index'])->name('admin.category');
+    });
+    Route::group(['prefix' => 'subcategory'], function(){
+        Route::get('/manage', [SubcategoryController::class, 'index'])->name('admin.subcategory');
     });
 
  });

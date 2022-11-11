@@ -28,7 +28,7 @@
                 <!--  Modal Body -->
                 <div class="modal-body">
                     <!--  category added form -->
-                    <form method="post" action= "{{Route('category.store')}}"id="categoryData" enctype="multipart/form-data">
+                    <form method="post" action= ""id="categoryData" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                           <label for="category_name">Category Name</label>
@@ -77,7 +77,7 @@
                             <th class="wd-15p">Action</th>
                         </tr>
                     </thead>
-                    <tbody class="tbodydata">
+                    {{--  <tbody class="tbodydata">
                         @foreach($categoryData as $category)
                          <tr>
                             <td>{{$serial++}}</td>
@@ -97,9 +97,9 @@
                            </td>
                         </tr>
                         @endforeach
-                    </tbody>
+                    </tbody>  --}}
                 </table>
-                {!!$categoryData->links()!!}
+                {{--  {!!$categoryData->links()!!}  --}}
 
          <!------- category edit Modal ------------->
         <div class="modal fade" id="catEditModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
